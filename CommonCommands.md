@@ -16,7 +16,13 @@ Get-AzureRmLocation | sort Location | Select Location = List of available locati
 
 Get-AzureRmVMImageSku -Location $location -PublisherName Canonical -Offer UbuntuServer = List of available Ubuntu distros
 
+Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress = List public IP addresses
+
 ## Management
+
+New-AzureRmResourceGroup = Create resource group
+
+New-AzureRmVM = Create new VM
 
 Start-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM = Start VM
 
