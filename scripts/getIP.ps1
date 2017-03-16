@@ -1,0 +1,1 @@
+﻿Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress
