@@ -17,7 +17,7 @@ Import all modules
 
 You may run into issues depending on security settings. Following lets you run unknown modules and scripts
 
-   Set-ExecutionPolicy Unrestricted
+    Set-ExecutionPolicy Unrestricted
   
 Now you should be able to login to your Azure instance
 
