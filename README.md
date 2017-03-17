@@ -21,7 +21,7 @@ You may run into issues depending on security settings. Following lets you run u
   
 Now you should be able to login to your Azure instance
 
-    Azure-LoginRmAccount
+    Login-AzureRmAccount
     
 Microsoft is constantly updating their cmdlets so you should get into the habit of upgrading your powershell
 
