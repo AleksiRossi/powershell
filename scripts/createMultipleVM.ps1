@@ -1,13 +1,16 @@
 ﻿$location = "westeurope"
 $resourceGroup = "testGroup"
+
 $subnetConf_name = "test_subnet"
 $vnet_name = "test_vnet"
 $ip_name = "test_ip"
 $nsg_name = "test_nsg"
 $nic_name = "test_nic"
+$vm_name = "testVM"
+
 $username = "pikkukarhu"
 $password = ConvertTo-SecureString 'h4aukiOnKala' -AsPlainText -Force
-$vm_name = "testVM"
+
 $vm_size = "Basic_A1"
 $ubuntuVersion = "16.04.0-LTS"
 
@@ -21,6 +24,9 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 $subnetConf = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetConf_name -AddressPrefix 10.50.100.0/24
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
 -Name $vnet_name -AddressPrefix 10.50.0.0/16 -Subnet $subnetConf
+
+# Get local ip
+$ipinfo = Invoke-RestMethod http://ipinfo.io/json
 
 # Firewall rules
 $SSH_rule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSSH  -Protocol Tcp `
@@ -36,6 +42,9 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Locati
 -Name $nsg_name -SecurityRules $SSH_rule,$HTTP_rule
 
 $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name test_subnet
+
+# Create user credentials for the VM
+$cred = New-Object System.Management.Automation.PSCredential ($username, $password)
 
 
 $i = 1;
