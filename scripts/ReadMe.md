@@ -1,6 +1,6 @@
 # Scripts
 
-All scripts are made with variables to are quick to edit for your needs. They've been made modular so you can use only those you need.
+All scripts are made with variables so they are quick to edit for your needs. They've been made modular so you can use only those you need.
 
 createRG.ps1 = Creates resource group
 
