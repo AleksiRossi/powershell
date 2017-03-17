@@ -18,6 +18,8 @@ Get-AzureRmVMImageSku -Location $location -PublisherName Canonical -Offer Ubuntu
 
 Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress = List public IP addresses
 
+Get-Command *AzureRm* = List all available Azure Resource Manager cmdlets
+
 ## Management
 
 New-AzureRmResourceGroup = Create resource group
