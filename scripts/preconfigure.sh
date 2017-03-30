@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Hold Azure linux agent so it doesn't restart and crash the extension during installation
+apt-mark hold walinuxagent
+
 # Update package list and system
-apt-get update -y  
+apt-get update -y
 apt-get upgrade -y
 
 # Install packages
@@ -49,3 +52,6 @@ net.ipv4.tcp_syncookies = 1' >> /etc/sysctl.conf
 
 # Set general environment locale
 echo 'LC_ALL=en_GB.UTF-8' >> /etc/environment
+
+# Unhold Azure Linux agent so you can update it later
+apt-mark unhold walinuxagent
