@@ -5,7 +5,7 @@ apt-mark hold walinuxagent
 
 # Update package list and system
 apt-get update -y
-apt-get upgrade -y
+DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
 # Install packages
 apt-get install nagios-nrpe-server nagios-plugins fail2ban ntp htop -y
