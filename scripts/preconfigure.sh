@@ -25,7 +25,7 @@ APT::Periodic::Download-Upgradeable-Packages "1";
 APT::Periodic::AutocleanInterval "7";
 APT::Periodic::RandomSleep "4000";
 APT::Periodic::Unattended-Upgrade "1";' > /etc/apt/apt.conf.d/10periodic
-/etc/init.d/unattended-upgrade restart
+/etc/init.d/unattended-upgrades restart
 
 # Kernel hardening
 echo '# Enable IP spoofing protection
