@@ -4,7 +4,7 @@
 apt-get update && apt-get upgrade -y && apt-get upgrade -y
 
 # Install packages
-apt-get install nagios-nrpe-server nagios-plugins fail2ban ntp -y
+apt-get install nagios-nrpe-server nagios-plugins fail2ban ntp htop -y
 
 # Create backup user with encrypted password
 passwd='$1$xyz$8h8sIuQ2lXT.fHh2fO.Ge1'
@@ -13,6 +13,8 @@ useradd -d /home/$user -m -s /bin/bash -p $passwd $user
 
 # Allow RLA public, internal and Sisu
 /usr/sbin/ufw allow from 195.192.251.82
+/usr/sbin/ufw allow from 10.0.150.0/23
+/usr/sbin/ufw allow from 77.73.6.98
 /usr/sbin/ufw default deny
 /usr/sbin/ufw --force enable
 
@@ -36,3 +38,13 @@ net.ipv4.conf.all.log_martians = 1
 # Enable TCP SYN cookie protection
 net.ipv4.tcp_syncookies = 1' >> /etc/sysctl.conf
 /sbin/sysctl -p
+
+# Set correct timezone
+/usr/bin/timedatectl set-timezone Europe/Helsinki
+
+# Configure NTP to use Finnish servers
+/bin/sed -ie 's/ubuntu.pool.ntp.org/fi.pool.ntp.org/g' /etc/ntp.conf
+/etc/init.d/ntp restart
+
+# Set general environment locale
+echo 'LC_ALL=en_GB.UTF-8' >> /etc/environment
