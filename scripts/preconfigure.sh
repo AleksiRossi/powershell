@@ -52,11 +52,11 @@ net.ipv4.tcp_syncookies = 1' >> /etc/sysctl.conf
 
 # Set general environment locale
 /usr/sbin/locale-gen en_GB.UTF-8
-/bin/sed -ie 's/en_US.UTF-8/en_GB.UTF-8/g /etc/default/locale
+/bin/sed -ie 's/en_US.UTF-8/en_GB.UTF-8/g' /etc/default/locale
 echo 'LC_ALL=en_GB.UTF-8' >> /etc/environment
 
 # Unhold Azure Linux agent so you can update it later
 apt-mark unhold walinuxagent
 
 # Reboot to ensure all updates and settings are in effect
-#/sbin/reboot
+/sbin/reboot
