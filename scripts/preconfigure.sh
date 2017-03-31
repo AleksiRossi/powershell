@@ -8,7 +8,7 @@ apt-get update -y
 DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
 # Install packages
-apt-get install nagios-nrpe-server nagios-plugins fail2ban ntp htop -y
+DEBIAN_FRONTEND=noninteractive apt-get install nagios-nrpe-server nagios-plugins fail2ban ntp htop -y
 
 # Create backup user with encrypted password
 passwd='$1$xyz$8h8sIuQ2lXT.fHh2fO.Ge1'
