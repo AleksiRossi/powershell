@@ -57,6 +57,3 @@ echo 'LC_ALL=en_GB.UTF-8' >> /etc/environment
 
 # Unhold Azure Linux agent so you can update it later
 apt-mark unhold walinuxagent
-
-# Reboot to ensure all updates and settings are in effect
-/sbin/reboot
