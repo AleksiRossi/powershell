@@ -59,4 +59,4 @@ echo 'LC_ALL=en_GB.UTF-8' >> /etc/environment
 apt-mark unhold walinuxagent
 
 # Reboot to ensure all updates and settings are in effect
-/sbin/reboot
+#/sbin/reboot
