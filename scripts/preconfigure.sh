@@ -11,14 +11,12 @@ DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y
 DEBIAN_FRONTEND=noninteractive apt-get install nagios-nrpe-server nagios-plugins fail2ban ntp htop -y
 
 # Create backup user with encrypted password
-passwd='$1$xyz$8h8sIuQ2lXT.fHh2fO.Ge1'
-user='varakarhu'
+passwd='$1$xyz$8h8sIuQ2lXT.fHh2fO.Ts1'
+user='user'
 useradd -d /home/$user -m -s /bin/bash -p $passwd $user
 
-# Allow RLA public, internal and Sisu
-/usr/sbin/ufw allow from 195.192.251.82
-/usr/sbin/ufw allow from 10.0.150.0/23
-/usr/sbin/ufw allow from 77.73.6.98
+# Allow source
+/usr/sbin/ufw allow from xxx.xxx.xxx.xxx
 /usr/sbin/ufw default deny
 /usr/sbin/ufw --force enable
 
